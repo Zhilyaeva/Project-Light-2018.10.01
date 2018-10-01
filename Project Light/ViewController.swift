@@ -1,20 +1,27 @@
-//
-//  ViewController.swift
-//  Project Light
-//
-//  Created by Ира  on 01.10.2018.
-//  Copyright © 2018 Ira Zhilyaeva. All rights reserved.
-//
-
 import UIKit
 
 class ViewController: UIViewController {
-
+    @IBAction func buttonPressed() {
+        isOn = !isOn
+    }
+ 
+    var isOn = true {
+        didSet {
+            updateUI()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        updateUI()
     }
-
-
+    
+    func updateUI() {
+        view.backgroundColor = isOn ? .white : .black
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
 }
 
